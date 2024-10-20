@@ -2,8 +2,6 @@ import dotenv from 'dotenv';
 import express from 'express';
 dotenv.config();
 
-// const APIKey = b2ffd029911ad3ec87891b18757707d3;
-
 // Import the routes
 import routes from './routes/index.js';
 
