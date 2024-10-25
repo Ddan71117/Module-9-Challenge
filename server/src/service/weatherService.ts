@@ -26,10 +26,6 @@ interface WeatherData {
     };
   }>;
 }
-// TODO: Define a class for the Weather object
-
-
-
 // TODO: Complete the WeatherService class
 class WeatherService {
   // TODO: Define the baseURL, API key, and city name properties
@@ -78,7 +74,7 @@ class WeatherService {
     const currentWeather = {
       city: response.name,
       date: new Date(response.dt*1000).toLocaleDateString(),
-      icon: response.weather[0]?.icon,
+      icon: response.weather[0].icon,
       description: response.weather[0].description,
       tempF: response.main.temp,
       humidity: response.main.humidity,
@@ -110,7 +106,6 @@ class WeatherService {
         humidity: data.main.humidity,
         windSpeed: data.wind.speed
       };
-      console.log(currentWeather);
       return currentWeather;
     });
     return forecastArray;
@@ -135,7 +130,7 @@ class WeatherService {
     const currentWeather = this.parseCurrentWeather(weatherData);
     const forecastData = await this.fetchForecastData(coordinates);
     const forecast = this.buildForecastArray(forecastData);
-    return { currentWeather, forecast };
+    return { forecast, currentWeather };
 
   }
 }
