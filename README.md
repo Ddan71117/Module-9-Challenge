@@ -16,8 +16,7 @@
 
 This project is designed to use a weather API key to give the user the current weather and a 5 day forecast of any city that can be entered within a search bar. Below is a screenshot of what the application looks like:
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
-
+![alt text](https://github.com/Ddan71117/Module-9-Challenge/blob/main/weather-db.PNG?raw=true)
 
 ## Installation
 
