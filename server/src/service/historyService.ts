@@ -1,5 +1,9 @@
 import fs from 'fs/promises';
-import path from 'path';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // TODO: Define a City class with name and id properties
 class City {
@@ -11,7 +15,7 @@ class HistoryService {
 // TODO: Define a read method that reads from the searchHistory.json file
  private async read(): Promise<City[]> {
   try {
-    const data = await fs.readfile(this.filePath, 'utf-8');
+    const data = await fs.readFile(this.filePath, 'utf-8');
     const cities = JSON.parse(data);
     return cities.map((city: { name:string, id: string}) => new City(city.name, city.id));
   } catch (error) {
@@ -44,6 +48,10 @@ class HistoryService {
   const cities = await this.getCities();
   const updatedCities = cities.filter(city => city.id !==id);
   await this.write(updatedCities);
+ }
+
+ private generateId(): string {
+  return Date.now().toString();
  }
 }
 
